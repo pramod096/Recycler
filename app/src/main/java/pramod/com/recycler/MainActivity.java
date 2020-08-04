@@ -25,10 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         initData();
-        View recyclerView = findViewById(R.id.recyclerview);
+        RecyclerView recyclerView = findViewById(R.id.recyclerview);
         RvAdapter rva = new RvAdapter(this);
         recyclerView.setAdapter(rva);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.hasFixedSize();
+
 
     }
 
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public RvViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(context).inflate(R.layout.one_row_layout, false);
+            View v = LayoutInflater.from(context).inflate(R.layout.one_row_layout, parent, false);
             return new RvViewHolder(v);
         }
 
